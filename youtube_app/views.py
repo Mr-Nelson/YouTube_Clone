@@ -36,7 +36,7 @@ class ModifyComment(APIView):
 
     def patch(self, request, pk):
         comment_id = self.get_by_id(pk)
-        comment_id.like += 1
+        comment_id.likes += 1
         serializer = CommentSerializer(comment_id, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
