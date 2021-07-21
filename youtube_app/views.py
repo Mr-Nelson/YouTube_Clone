@@ -53,7 +53,6 @@ class ModifyComment(APIView):
 
     def delete(self, request, pk):
         comment_id = self.get_by_id(pk)
-        serializer = CommentSerializer(comment_id, pk)
-        if serializer.is_valid():
-            serializer.delete()
-            return Response(serializer.data, status=status.HTTP_200_OK)
+        deleteComment = CommentSerializer(comment_id)
+        comment_id.delete()
+        return Response(deleteComment.data, status=status.HTTP_200_OK)
