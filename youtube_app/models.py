@@ -9,4 +9,4 @@ class Comment(models.Model):
     # subComment = models.ForeignKey(models.Model.Comment.pk)
 
     def __str__(self):
-        return self.author, self.text
+        return f"{self.author}, {self.text}"
